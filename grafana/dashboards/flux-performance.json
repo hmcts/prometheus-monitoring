@@ -630,8 +630,8 @@
       {
         "current": {
           "tags": [],
-          "text": "prometheus-aat-01",
-          "value": "prometheus-aat-01"
+          "text": "$datasource",
+          "value": "$datasource"
         },
         "hide": 0,
         "includeAll": false,
@@ -666,7 +666,7 @@
     ]
   },
   "timezone": "",
-  "title": "HelmPerformance - AAT00",
+  "title": "Flux-Helm performance",
   "uid": "3pmn7fmMk",
   "version": 2
 }
