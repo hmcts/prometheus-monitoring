@@ -1,0 +1,1981 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 36,
+  "iteration": 1593082757085,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 60,
+      "panels": [
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 0,
+            "y": 1
+          },
+          "id": 54,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-bubble-frontend-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ccpay-bubble-frontend-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 5,
+            "y": 1
+          },
+          "id": 55,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-bulkscanning-api-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ccpay-bulkscanning-api-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 10,
+            "y": 1
+          },
+          "id": 56,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-payment-api-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "ccpay-payment-api-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 15,
+            "y": 1
+          },
+          "id": 57,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"fees-register-api-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "fees-register-api-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 0,
+            "y": 7
+          },
+          "id": 58,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"fees-register-frontend-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "fees-register-frontend-nodejs",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "Fees & Pay Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 52,
+      "panels": [
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 0,
+            "y": 1
+          },
+          "id": 41,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-bulk-scan-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-bulk-scan-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 4,
+            "y": 1
+          },
+          "id": 42,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-case-loader-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-case-loader-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 8,
+            "y": 1
+          },
+          "id": 43,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-case-loader-job\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-case-loader-job",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 12,
+            "y": 1
+          },
+          "id": 44,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-ccd-callback-orchestrator-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-ccd-callback-orchestrator-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 18,
+            "y": 1
+          },
+          "id": 45,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-cor-frontend-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-cor-frontend-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 0,
+            "y": 7
+          },
+          "id": 46,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-evidence-share-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-evidence-share-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 4,
+            "y": 7
+          },
+          "id": 47,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tribunals-api-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-tribunals-api-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 8,
+            "y": 7
+          },
+          "id": 48,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tribunals-frontend-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-tribunals-frontend-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 13,
+            "y": 7
+          },
+          "id": 49,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tya-frontend-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-tya-frontend-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 5,
+            "x": 18,
+            "y": 7
+          },
+          "id": 50,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tya-notif-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "sscs-tya-notif-java",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "SSCS Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 39,
+      "panels": [
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 0,
+            "y": 2
+          },
+          "id": 34,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-ao-webapp-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "xui-ao-webapp-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 4,
+            "y": 2
+          },
+          "id": 35,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-mo-webapp-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "xui-mo-webapp-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 5,
+            "x": 8,
+            "y": 2
+          },
+          "id": 36,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-terms-and-conditions-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "xui-terms-and-conditions-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 13,
+            "y": 2
+          },
+          "id": 37,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-webapp-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "xui-webapp-nodejs",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "XUI Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 32,
+      "panels": [
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 0,
+            "y": 3
+          },
+          "id": 30,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"family-public-law\", container=\"fpl-case-service-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "fpl-case-service-java",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "Family Public Law Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 8,
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "datasource": "$Datasource",
+          "description": "",
+          "gridPos": {
+            "h": 5,
+            "w": 5,
+            "x": 0,
+            "y": 4
+          },
+          "id": 2,
+          "links": [],
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [
+                  {
+                    "id": 0,
+                    "op": "=",
+                    "text": "N/A",
+                    "type": 1,
+                    "value": "null"
+                  }
+                ],
+                "max": 1,
+                "min": 0,
+                "nullValueMode": "connected",
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"aac\", container=\"manage-case-assignment-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "manage-case-assignment-java",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "AAC Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 28,
+      "panels": [
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 0,
+            "y": 5
+          },
+          "id": 10,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cfs-java\"})",
+              "intervalFactor": 1,
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-cfs-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 3,
+            "y": 5
+          },
+          "id": 12,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cms-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-cms-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 6,
+            "y": 5
+          },
+          "id": 18,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-dgs-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-dgs-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 9,
+            "y": 5
+          },
+          "id": 14,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cos-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-cos-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 12,
+            "y": 5
+          },
+          "id": 20,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-dn-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-dn-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 15,
+            "y": 5
+          },
+          "id": 24,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-hm-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-hm-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 0,
+            "y": 10
+          },
+          "id": 16,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-da-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-da-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 3,
+            "y": 10
+          },
+          "id": 23,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-fps-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-fps-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 6,
+            "y": 10
+          },
+          "id": 26,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-rfe-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-rfe-nodejs",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 9,
+            "y": 10
+          },
+          "id": 22,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-emca-java\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-emca-java",
+          "type": "bargauge"
+        },
+        {
+          "datasource": "$Datasource",
+          "gridPos": {
+            "h": 5,
+            "w": 3,
+            "x": 12,
+            "y": 10
+          },
+          "id": 25,
+          "options": {
+            "displayMode": "gradient",
+            "fieldOptions": {
+              "calcs": [
+                "mean"
+              ],
+              "defaults": {
+                "mappings": [],
+                "max": 1,
+                "min": 0,
+                "thresholds": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ],
+                "unit": "short"
+              },
+              "override": {},
+              "values": false
+            },
+            "orientation": "vertical"
+          },
+          "pluginVersion": "6.4.2",
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$datasource",
+              "value": "$datasource"
+            }
+          },
+          "targets": [
+            {
+              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-pfe-nodejs\"})",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "div-pfe-nodejs",
+          "type": "bargauge"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$datasource",
+          "value": "$datasource"
+        }
+      },
+      "title": "Divorce Apps",
+      "type": "row"
+    }
+  ],
+  "schemaVersion": 20,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "tags": [],
+          "text": "$datasource",
+          "value": "$datasource"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "/^prometheus-/",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Applications Health Dashboard",
+  "uid": "Ar5CIUWMz",
+  "version": 6
+}
