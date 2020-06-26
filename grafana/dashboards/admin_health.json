@@ -35,7 +35,7 @@
       "type": "row"
     },
     {
-      "datasource": null,
+      "datasource": "$datasource",
       "gridPos": {
         "h": 5,
         "w": 6,
@@ -92,7 +92,7 @@
       "type": "gauge"
     },
     {
-      "datasource": null,
+      "datasource": "$datasource",
       "gridPos": {
         "h": 5,
         "w": 6,
@@ -148,7 +148,7 @@
       "type": "gauge"
     },
     {
-      "datasource": null,
+      "datasource": "$datasource",
       "gridPos": {
         "h": 5,
         "w": 6,
@@ -204,7 +204,7 @@
       "type": "gauge"
     },
     {
-      "datasource": null,
+      "datasource": "$datasource",
       "gridPos": {
         "h": 5,
         "w": 6,
