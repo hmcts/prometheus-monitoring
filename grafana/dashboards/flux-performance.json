@@ -1488,8 +1488,8 @@
       {
         "current": {
           "tags": [],
-          "text": "prometheus-aat-01",
-          "value": "prometheus-aat-01"
+          "text": "$datasource",
+          "value": "$datasource"
         },
         "hide": 0,
         "includeAll": false,
