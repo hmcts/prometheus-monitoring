@@ -15,10 +15,102 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 36,
-  "iteration": 1593082757085,
+  "iteration": 1593274272445,
   "links": [],
   "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "$Datasource",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 62,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "6.4.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(namespace, pod, reason) (kube_pod_container_status_waiting_reason{reason=~\"ContainerCreating|CrashLoopBackOff|ErrImagePull|ImagePullBackOff\"} > 0 )",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Namespace: {{ namespace}}  Pod: {{ pod }}   Reason: {{reason}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Failed Pods with reason",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
     {
       "collapsed": true,
       "datasource": null,
@@ -26,7 +118,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 9
       },
       "id": 60,
       "panels": [
@@ -70,8 +162,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -180,8 +272,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -235,8 +327,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -290,8 +382,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -310,8 +402,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "Fees & Pay Apps",
@@ -324,7 +416,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 10
       },
       "id": 52,
       "panels": [
@@ -368,8 +460,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -423,8 +515,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -478,8 +570,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -533,8 +625,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -588,8 +680,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -643,8 +735,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -698,8 +790,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -753,8 +845,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -808,8 +900,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -863,8 +955,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -883,8 +975,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "SSCS Apps",
@@ -897,7 +989,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 11
       },
       "id": 39,
       "panels": [
@@ -941,8 +1033,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -996,8 +1088,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1051,8 +1143,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1106,8 +1198,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1126,8 +1218,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "XUI Apps",
@@ -1140,7 +1232,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 12
       },
       "id": 32,
       "panels": [
@@ -1184,8 +1276,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1204,8 +1296,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "Family Public Law Apps",
@@ -1218,7 +1310,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 13
       },
       "id": 8,
       "panels": [
@@ -1274,8 +1366,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1294,8 +1386,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "AAC Apps",
@@ -1308,7 +1400,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 14
       },
       "id": 28,
       "panels": [
@@ -1352,8 +1444,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1408,8 +1500,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1463,8 +1555,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1518,8 +1610,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1573,8 +1665,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1628,8 +1720,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1683,8 +1775,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1738,8 +1830,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1793,8 +1885,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1848,8 +1940,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1903,8 +1995,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "$datasource",
-              "value": "$datasource"
+              "text": "$Datasource",
+              "value": "$Datasource"
             }
           },
           "targets": [
@@ -1923,8 +2015,8 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         }
       },
       "title": "Divorce Apps",
@@ -1939,8 +2031,8 @@
       {
         "current": {
           "tags": [],
-          "text": "$datasource",
-          "value": "$datasource"
+          "text": "$Datasource",
+          "value": "$Datasource"
         },
         "hide": 0,
         "includeAll": false,
@@ -1977,5 +2069,5 @@
   "timezone": "",
   "title": "Applications Health Dashboard",
   "uid": "Ar5CIUWMz",
-  "version": 6
+  "version": 1
 }
