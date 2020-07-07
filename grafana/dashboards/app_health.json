@@ -15,101 +15,1234 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1593291520874,
+  "id": 38,
+  "iteration": 1594141690869,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "cacheTimeout": null,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "$Datasource",
-      "fill": 1,
-      "fillGradient": 0,
+      "collapsed": true,
+      "datasource": null,
       "gridPos": {
-        "h": 9,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 74,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pluginVersion": "6.4.2",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
+      "id": 156,
+      "panels": [
         {
-          "expr": "sum by(namespace, pod, reason) (kube_pod_container_status_waiting_reason{reason=~\"ContainerCreating|CrashLoopBackOff|ErrImagePull|ImagePullBackOff\"} > 0 )",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "Namespace: {{ namespace}}  Pod: {{ pod }}   Reason: {{reason}}",
-          "refId": "A"
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 154,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"rd\"}/kube_deployment_spec_replicas{namespace=\"rd\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "RD Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Failed Pods with reason",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
       },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
+      "title": "ReferenceData Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
       },
-      "yaxes": [
+      "id": 148,
+      "panels": [
         {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 146,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"idam\"}/kube_deployment_spec_replicas{namespace=\"idam\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "IDAM Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "IDAM Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 70,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 76,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"ccd\"}/kube_deployment_spec_replicas{namespace=\"ccd\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "CCD Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "CCD Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 28,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 7
+          },
+          "id": 88,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"divorce\"}/kube_deployment_spec_replicas{namespace=\"divorce\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Divorce Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "Divorce Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 116,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 114,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"probate\"}/kube_deployment_spec_replicas{namespace=\"probate\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Probate Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "Probate Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 112,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 5
+          },
+          "id": 110,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"money-claims\"}/kube_deployment_spec_replicas{namespace=\"money-claims\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "MoneyClaims Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "CMC Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 128,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 126,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"ia\"}/kube_deployment_spec_replicas{namespace=\"ia\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "IA Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "IA Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 124,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 122,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"ucmc\"}/kube_deployment_spec_replicas{namespace=\"ucmc\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "UCMC Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "UCMC Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 120,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 118,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"reform-scan\"}/kube_deployment_spec_replicas{namespace=\"reform-scan\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "RreformScan Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "ReformScan Apps",
+      "type": "row"
     },
     {
       "collapsed": true,
@@ -120,490 +1253,131 @@
         "x": 0,
         "y": 9
       },
-      "id": 70,
+      "id": 108,
       "panels": [
         {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 6,
-            "w": 5,
+            "h": 8,
+            "w": 24,
             "x": 0,
             "y": 1
           },
-          "id": 54,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
+          "id": 106,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
           },
-          "pluginVersion": "6.4.2",
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-admin-web-nodejs\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"financial-remedy\"}/kube_deployment_spec_replicas{namespace=\"financial-remedy\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "ccd-admin-web-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 5,
-            "y": 1
-          },
-          "id": 62,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-api-gateway-web-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-api-gateway-web-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 10,
-            "y": 1
-          },
-          "id": 63,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-case-activity-api-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-case-activity-api-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 15,
-            "y": 1
-          },
-          "id": 64,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-case-document-am-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-case-document-am-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 20,
-            "y": 1
-          },
-          "id": 71,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-user-profile-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-user-profile-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 0,
-            "y": 7
-          },
-          "id": 65,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-case-management-web-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-case-management-web-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 5,
-            "y": 7
-          },
-          "id": 66,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-case-print-service-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-case-print-service-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 10,
-            "y": 7
-          },
-          "id": 67,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-data-store-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-data-store-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 14,
-            "y": 7
-          },
-          "id": 68,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-definition-store-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-definition-store-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 19,
-            "y": 7
-          },
-          "id": 72,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 2,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"ccd\", container=\"ccd-test-stubs-service-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccd-test-stubs-service-java",
-          "type": "bargauge"
+          "title": "financial-remedy Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
-      "title": "CCD Apps",
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "Financial Remedy Apps",
       "type": "row"
     },
     {
@@ -615,45 +1389,696 @@
         "x": 0,
         "y": 10
       },
+      "id": 104,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 10
+          },
+          "id": 102,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"bsp\"}/kube_deployment_spec_replicas{namespace=\"bsp\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "BSP Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "BSP Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 152,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 11
+          },
+          "id": 150,
+          "options": {},
+          "pageSize": 15,
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"pcq\"}/kube_deployment_spec_replicas{namespace=\"pcq\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "PCQ Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "title": "PCQ Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 12
+      },
+      "id": 100,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 98,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"bar\"}/kube_deployment_spec_replicas{namespace=\"bar\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "BAR Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "BAR Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 96,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "id": 94,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"am\"}/kube_deployment_spec_replicas{namespace=\"am\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AM Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "AM Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 92,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 14
+          },
+          "id": 90,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"adoption\"}/kube_deployment_spec_replicas{namespace=\"adoption\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Adoption Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "Adoption Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
       "id": 60,
       "panels": [
         {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 6,
-            "w": 5,
+            "h": 8,
+            "w": 24,
             "x": 0,
-            "y": 2
+            "y": 15
           },
-          "id": 58,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
+          "id": 78,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -661,236 +2086,89 @@
               "value": "$Datasource"
             }
           },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"fees-register-frontend-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "fees-register-frontend-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 5,
-            "y": 2
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
           },
-          "id": 61,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-bubble-frontend-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccpay-bubble-frontend-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 10,
-            "y": 2
-          },
-          "id": 56,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "type": "number",
+              "unit": "short"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-payment-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "ccpay-payment-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 15,
-            "y": 2
-          },
-          "id": 57,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Pods ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"fees-register-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "fees-register-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 0,
-            "y": 8
-          },
-          "id": 55,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
             }
-          },
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"fees-pay\", container=\"ccpay-bulkscanning-api-java\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"fees-pay\"}/kube_deployment_spec_replicas{namespace=\"fees-pay\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "ccpay-bulkscanning-api-java",
-          "type": "bargauge"
+          "title": "fees-pay Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -911,47 +2189,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 16
       },
       "id": 52,
       "panels": [
         {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 6,
-            "w": 4,
+            "h": 8,
+            "w": 24,
             "x": 0,
-            "y": 1
+            "y": 3
           },
-          "id": 41,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
+          "id": 80,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -959,511 +2223,89 @@
               "value": "$Datasource"
             }
           },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-bulk-scan-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-bulk-scan-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 4,
-            "y": 1
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
           },
-          "id": 42,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-case-loader-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-case-loader-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 8,
-            "y": 1
-          },
-          "id": 43,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "type": "number",
+              "unit": "short"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-case-loader-job\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-case-loader-job",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 6,
-            "x": 12,
-            "y": 1
-          },
-          "id": 44,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-ccd-callback-orchestrator-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-ccd-callback-orchestrator-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 6,
-            "x": 18,
-            "y": 1
-          },
-          "id": 45,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-cor-frontend-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-cor-frontend-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 0,
-            "y": 7
-          },
-          "id": 46,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
             }
-          },
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-evidence-share-java\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"sscs\"}/kube_deployment_spec_replicas{namespace=\"sscs\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "sscs-evidence-share-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 4,
-            "y": 7
-          },
-          "id": 47,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tribunals-api-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-tribunals-api-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 8,
-            "y": 7
-          },
-          "id": 48,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tribunals-frontend-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-tribunals-frontend-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 13,
-            "y": 7
-          },
-          "id": 49,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tya-frontend-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-tya-frontend-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 5,
-            "x": 18,
-            "y": 7
-          },
-          "id": 50,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"sscs\", container=\"sscs-tya-notif-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "sscs-tya-notif-java",
-          "type": "bargauge"
+          "title": "SSCS Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -1484,47 +2326,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 12
+        "y": 17
       },
       "id": 39,
       "panels": [
         {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 5,
-            "w": 4,
+            "h": 8,
+            "w": 24,
             "x": 0,
-            "y": 2
+            "y": 17
           },
-          "id": 34,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
+          "id": 82,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -1532,181 +2360,89 @@
               "value": "$Datasource"
             }
           },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-ao-webapp-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "xui-ao-webapp-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 4,
-            "x": 4,
-            "y": 2
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
           },
-          "id": 35,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-mo-webapp-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "xui-mo-webapp-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 5,
-            "x": 8,
-            "y": 2
-          },
-          "id": 36,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "type": "number",
+              "unit": "short"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-terms-and-conditions-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "xui-terms-and-conditions-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 4,
-            "x": 13,
-            "y": 2
-          },
-          "id": 37,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
             }
-          },
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"xui\", container=\"xui-webapp-nodejs\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"xui\"}/kube_deployment_spec_replicas{namespace=\"xui\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "xui-webapp-nodejs",
-          "type": "bargauge"
+          "title": "XUI Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -1727,47 +2463,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 18
       },
       "id": 32,
       "panels": [
         {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 0,
-            "y": 3
-          },
-          "id": 30,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
             },
-            "orientation": "vertical"
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 5
           },
-          "pluginVersion": "6.4.2",
+          "id": 84,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -1775,16 +2497,89 @@
               "value": "$Datasource"
             }
           },
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Total Ready Pods",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"family-public-law\", container=\"fpl-case-service-java\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"family-public-law\"}/kube_deployment_spec_replicas{namespace=\"family-public-law\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "fpl-case-service-java",
-          "type": "bargauge"
+          "title": "family-public-law Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -1805,59 +2600,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 14
+        "y": 19
       },
       "id": 8,
       "panels": [
         {
-          "cacheTimeout": null,
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
           "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 5,
-            "w": 5,
+            "h": 8,
+            "w": 24,
             "x": 0,
-            "y": 4
+            "y": 6
           },
-          "id": 2,
-          "links": [],
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [
-                  {
-                    "id": 0,
-                    "op": "=",
-                    "text": "N/A",
-                    "type": 1,
-                    "value": "null"
-                  }
-                ],
-                "max": 1,
-                "min": 0,
-                "nullValueMode": "connected",
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
+          "id": 86,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -1865,16 +2634,91 @@
               "value": "$Datasource"
             }
           },
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "#73BF69",
+                "rgba(237, 129, 40, 0.89)",
+                "#F2495C"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [
+                ""
+              ],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            }
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"aac\", container=\"manage-case-assignment-java\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"aac\"}/kube_deployment_spec_replicas{namespace=\"aac\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "manage-case-assignment-java",
-          "type": "bargauge"
+          "title": "AAC Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -1895,47 +2739,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 20
       },
-      "id": 28,
+      "id": 136,
       "panels": [
         {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
           "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 5,
-            "w": 3,
+            "h": 8,
+            "w": 24,
             "x": 0,
-            "y": 5
+            "y": 18
           },
-          "id": 10,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
+          "id": 134,
+          "options": {},
+          "pageSize": 15,
           "scopedVars": {
             "Datasource": {
               "selected": true,
@@ -1943,567 +2773,88 @@
               "value": "$Datasource"
             }
           },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cfs-java\"})",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-cfs-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 3,
-            "y": 5
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
           },
-          "id": 12,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cms-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-cms-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 6,
-            "y": 5
-          },
-          "id": 18,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "type": "number",
+              "unit": "short"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-dgs-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-dgs-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 9,
-            "y": 5
-          },
-          "id": 14,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
             },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-cos-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-cos-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 12,
-            "y": 5
-          },
-          "id": 20,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "mean"
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-dn-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-dn-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 15,
-            "y": 5
-          },
-          "id": 24,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
               ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
             }
-          },
+          ],
           "targets": [
             {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-hm-nodejs\"})",
+              "expr": "kube_deployment_status_replicas_available{namespace=\"ctsc\"}/kube_deployment_spec_replicas{namespace=\"ctsc\"} * 100",
+              "legendFormat": "{{ deployment }}",
               "refId": "A"
             }
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "div-hm-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 0,
-            "y": 10
-          },
-          "id": 16,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-da-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-da-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 3,
-            "y": 10
-          },
-          "id": 23,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-fps-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-fps-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 6,
-            "y": 10
-          },
-          "id": 26,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-rfe-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-rfe-nodejs",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 9,
-            "y": 10
-          },
-          "id": 22,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-emca-java\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-emca-java",
-          "type": "bargauge"
-        },
-        {
-          "datasource": "$Datasource",
-          "gridPos": {
-            "h": 5,
-            "w": 3,
-            "x": 12,
-            "y": 10
-          },
-          "id": 25,
-          "options": {
-            "displayMode": "gradient",
-            "fieldOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "defaults": {
-                "mappings": [],
-                "max": 1,
-                "min": 0,
-                "thresholds": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ],
-                "unit": "short"
-              },
-              "override": {},
-              "values": false
-            },
-            "orientation": "vertical"
-          },
-          "pluginVersion": "6.4.2",
-          "scopedVars": {
-            "Datasource": {
-              "selected": true,
-              "text": "$Datasource",
-              "value": "$Datasource"
-            }
-          },
-          "targets": [
-            {
-              "expr": " sum by(namespace, container) (kube_pod_container_status_ready{namespace=\"divorce\", container=\"div-pfe-nodejs\"})",
-              "refId": "A"
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "div-pfe-nodejs",
-          "type": "bargauge"
+          "title": "CTSC Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
         }
       ],
       "repeat": "Datasource",
@@ -2514,7 +2865,415 @@
           "value": "$Datasource"
         }
       },
-      "title": "Divorce Apps",
+      "title": "CTSC Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 132,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 19
+          },
+          "id": 130,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"coh\"}/kube_deployment_spec_replicas{namespace=\"coh\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "COH Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "COH Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 140,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 20
+          },
+          "id": 138,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"ethos\"}/kube_deployment_spec_replicas{namespace=\"ethos\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Ethos Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "Ethos Apps",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 144,
+      "panels": [
+        {
+          "columns": [
+            {
+              "text": "Current",
+              "value": "current"
+            },
+            {
+              "text": "Avg",
+              "value": "avg"
+            }
+          ],
+          "datasource": "$Datasource",
+          "description": "",
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 21
+          },
+          "id": 142,
+          "options": {},
+          "pageSize": 15,
+          "scopedVars": {
+            "Datasource": {
+              "selected": true,
+              "text": "$Datasource",
+              "value": "$Datasource"
+            }
+          },
+          "showHeader": true,
+          "sort": {
+            "col": null,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Pods",
+              "colorMode": "value",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "#73BF69"
+              ],
+              "decimals": 2,
+              "link": false,
+              "pattern": "Metric",
+              "thresholds": [
+                ""
+              ],
+              "type": "number",
+              "unit": "short"
+            },
+            {
+              "alias": "Pods Ready",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 0,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "Current",
+              "sanitize": false,
+              "thresholds": [],
+              "type": "number",
+              "unit": "percent"
+            },
+            {
+              "alias": "Status",
+              "colorMode": "value",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 2,
+              "pattern": "Avg",
+              "rangeMaps": [
+                {
+                  "from": "100",
+                  "text": "Healthy",
+                  "to": "100"
+                },
+                {
+                  "from": "0",
+                  "text": "Unhealthy",
+                  "to": "99"
+                }
+              ],
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "kube_deployment_status_replicas_available{namespace=\"em\"}/kube_deployment_spec_replicas{namespace=\"em\"} * 100",
+              "legendFormat": "{{ deployment }}",
+              "refId": "A"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "EM Applications Health Status",
+          "transform": "timeseries_aggregations",
+          "type": "table"
+        }
+      ],
+      "repeat": "Datasource",
+      "scopedVars": {
+        "Datasource": {
+          "selected": true,
+          "text": "$Datasource",
+          "value": "$Datasource"
+        }
+      },
+      "title": "EM Apps",
       "type": "row"
     }
   ],
@@ -2563,5 +3322,5 @@
   "timezone": "",
   "title": "Applications Health Dashboard",
   "uid": "Ar5CIUWMz",
-  "version": 1
+  "version": 49
 }
