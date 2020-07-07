@@ -115,14 +115,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -251,14 +251,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -387,14 +387,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -523,14 +523,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -660,14 +660,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -796,14 +796,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -932,14 +932,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1068,14 +1068,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1204,14 +1204,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1340,14 +1340,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1476,14 +1476,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1605,14 +1605,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1733,14 +1733,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -1869,14 +1869,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2005,14 +2005,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2141,14 +2141,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2278,14 +2278,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2415,14 +2415,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2552,14 +2552,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2689,14 +2689,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [
@@ -2828,14 +2828,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -2964,14 +2964,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -3100,14 +3100,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
@@ -3236,14 +3236,14 @@
               "pattern": "Avg",
               "rangeMaps": [
                 {
-                  "from": "100",
+                  "from": "80",
                   "text": "Healthy",
                   "to": "100"
                 },
                 {
                   "from": "0",
                   "text": "Unhealthy",
-                  "to": "99"
+                  "to": "80"
                 }
               ],
               "thresholds": [],
