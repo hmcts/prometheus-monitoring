@@ -443,6 +443,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:429",
+          "decimals": 0,
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -452,6 +453,7 @@
         },
         {
           "$$hashKey": "object:430",
+          "decimals": null,
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -528,7 +530,7 @@
         "overrides": []
       },
       "fill": 1,
-      "fillGradient": 5,
+      "fillGradient": 8,
       "gridPos": {
         "h": 8,
         "w": 12,
@@ -796,5 +798,5 @@
   "timezone": "utc",
   "title": "Mailrelay Dashboard",
   "uid": "H5HHvLmnk",
-  "version": 10
+  "version": 12
 }
