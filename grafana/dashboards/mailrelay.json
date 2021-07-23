@@ -16,7 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 36,
+  "id": 38,
+  "iteration": 1627043612378,
   "links": [],
   "panels": [
     {
@@ -24,7 +25,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "decimals": null,
       "description": "Shows the total number of messages processed by the mail relay",
       "fieldConfig": {
@@ -88,25 +89,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"arrived\"}",
+          "expr": "exim_messages_total{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\",flag=\"arrived\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "A"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"completed\"}",
+          "expr": "exim_messages_total{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"completed\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "B"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"delivered\"}",
+          "expr": "exim_messages_total{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"delivered\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "C"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"failed\"}",
+          "expr": "exim_messages_total{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\", flag=\"failed\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "D"
@@ -164,7 +165,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "decimals": null,
       "description": "Shows the total number of messages processed by the mail relay",
       "fieldConfig": {
@@ -226,25 +227,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"arrived\"}",
+          "expr": "exim_messages_total{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"arrived\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "A"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"completed\"}",
+          "expr": "exim_messages_total{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"completed\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "B"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"delivered\"}",
+          "expr": "exim_messages_total{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"delivered\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "C"
         },
         {
-          "expr": "exim_messages_total{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"failed\"}",
+          "expr": "exim_messages_total{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\", flag=\"failed\"}",
           "interval": "",
           "legendFormat": "{{flag}}",
           "refId": "D"
@@ -298,7 +299,7 @@
       }
     },
     {
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -344,14 +345,14 @@
       "pluginVersion": "7.2.1",
       "targets": [
         {
-          "expr": "rate(exim_reject_total{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\"}[5m])",
+          "expr": "rate(exim_reject_total{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\"}[5m])",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "A"
         },
         {
-          "expr": "rate(exim_reject_total{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\"}[5m])",
+          "expr": "rate(exim_reject_total{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\"}[5m])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "refId": "B"
@@ -367,7 +368,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -410,13 +411,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "exim_queue{instance=\"10.144.0.21:9636\", job=\"mailrelay-exim\", pod=\"mailrelay-exim-0\"}",
+          "expr": "exim_queue{instance=\"$instance0\", job=\"mailrelay-exim\", pod=\"mailrelay-exim-0\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
         },
         {
-          "expr": "exim_queue{instance=\"10.144.0.5:9636\", job=\"mailrelay-exim\", pod=\"mailrelay-exim-1\"}",
+          "expr": "exim_queue{instance=\"$instance1\", job=\"mailrelay-exim\", pod=\"mailrelay-exim-1\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "B"
@@ -468,47 +469,11 @@
       }
     },
     {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                1
-              ],
-              "type": "lt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "A",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "last"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "for": "5m",
-        "frequency": "1m",
-        "handler": 1,
-        "message": "Mailrelay is down",
-        "name": "Mailrelay Status alert Instance 1",
-        "noDataState": "no_data",
-        "notifications": []
-      },
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -565,21 +530,13 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "exim_up{instance=\"10.144.0.21:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\"}",
+          "expr": "exim_up{instance=\"$instance0\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-0\"}",
           "interval": "",
           "legendFormat": "{{instance}} - {{pod}}",
           "refId": "A"
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 1
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -624,47 +581,11 @@
       }
     },
     {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                1
-              ],
-              "type": "lt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "A",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "last"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "for": "6m",
-        "frequency": "2m",
-        "handler": 1,
-        "message": "Mailrelay is down",
-        "name": "Mailrelay Status alert",
-        "noDataState": "no_data",
-        "notifications": []
-      },
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "sds-prometheus-prod-00",
+      "datasource": "$datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -721,21 +642,13 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "exim_up{instance=\"10.144.0.5:9636\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\"}",
+          "expr": "exim_up{instance=\"$instance1\",job=\"mailrelay-exim\",pod=\"mailrelay-exim-1\"}",
           "interval": "",
           "legendFormat": "{{instance}} - {{pod}}",
           "refId": "A"
         }
       ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 1
-        }
-      ],
+      "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
@@ -788,7 +701,79 @@
     "exim"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "sds-prometheus-00-https",
+          "value": "sds-prometheus-00-https"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "/^sds-prometheus-/",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "10.144.0.65:9636",
+          "value": "10.144.0.65:9636"
+        },
+        "datasource": "$datasource",
+        "definition": "query_result(exim_up{container=\"eximexporter\",job=\"mailrelay-exim\", namespace=\"mailrelay\",  pod=\"mailrelay-exim-0\"})",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Pod Instance 0",
+        "multi": false,
+        "name": "instance0",
+        "options": [],
+        "query": "query_result(exim_up{container=\"eximexporter\",job=\"mailrelay-exim\", namespace=\"mailrelay\",  pod=\"mailrelay-exim-0\"})",
+        "refresh": 1,
+        "regex": ".*instance=\"(.*?)\".*",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "10.144.0.37:9636",
+          "value": "10.144.0.37:9636"
+        },
+        "datasource": "$datasource",
+        "definition": "query_result(exim_up{container=\"eximexporter\",job=\"mailrelay-exim\", namespace=\"mailrelay\",  pod=\"mailrelay-exim-1\"})",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Pod Instance 1",
+        "multi": false,
+        "name": "instance1",
+        "options": [],
+        "query": "query_result(exim_up{container=\"eximexporter\",job=\"mailrelay-exim\", namespace=\"mailrelay\",  pod=\"mailrelay-exim-1\"})",
+        "refresh": 1,
+        "regex": ".*instance=\"(.*?)\".*",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -796,7 +781,7 @@
   },
   "timepicker": {},
   "timezone": "utc",
-  "title": "Mailrelay Dashboard",
-  "uid": "H5HHvLmnk",
-  "version": 12
+  "title": "Mailrelay Dashboard v1",
+  "uid": "H5HHvLmnj",
+  "version": 7
 }
